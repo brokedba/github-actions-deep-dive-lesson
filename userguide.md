@@ -4,12 +4,28 @@
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-## Troubleshooting content
+### Set Up a Workflow to Run on the Runner
 
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-- Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-- Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+1.  In your GitHub repository, select **Code** in the top menu bar.
+2.  Below **Quick setup**, select **creating a new file**.
+3.  In the first **Name your file** text box, enter `.github/`.
+4.  In the second **Name your file** text box, enter `workflows/`.
+5.  In the third **Name your file** text box, enter `action.yaml`.
+6.  Configure your first workflow in the file editor:
+
+```yaml
+name: Must run on custom runner
+
+on: push
+
+jobs:
+  init:
+    runs-on: self-hosted
+    steps:
+      - run: echo 'hello cloud gurus'
+      - run: echo $HOSTNAME
+      
+```
 
 # GitHub Runners Comparison Table
 
