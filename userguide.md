@@ -11,7 +11,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 - Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
 - Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-# GitHub Runners Comparison
+# GitHub Runners Comparison Table
 
 | **Aspect**                    | **GitHub-Hosted Runners**                                       | **Self-Hosted Runners**                                |
 |-------------------------------|---------------------------------------------------------------|-------------------------------------------------------|
