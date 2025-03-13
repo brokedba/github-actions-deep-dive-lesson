@@ -7,9 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Check out code
-        uses: actions/checkout@v2
-      - name: Debug the event
-        run: echo "Modified Files: ${{ github.event.head_commit.modified }}"      
+        uses: actions/checkout@v2  
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -72,7 +70,9 @@ jobs:
   documentation: 
     runs-on: ubuntu-latest
     needs : lint
-    if: github.event_name == 'push' && contains(join(github.event.commits.*.modified), 'userguide.md')
+    if: | #github.event_name == 'push' && contains(join(github.event.commits.*.modified), 'userguide.md')
+      github.event_name == 'push' &&
+        contains(join(github.event.commits.*.modified), 'userguide.md')
     steps: 
       - name: Check out code
         uses: actions/checkout@v2
