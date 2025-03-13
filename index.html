@@ -7,46 +7,138 @@ ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
 voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
 sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
 mollit anim id est laborum.</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<ul>
-<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-nisi ut aliquip ex ea commodo consequat.</li>
-<li>Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur.</li>
-<li>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-officia deserunt mollit anim id est laborum.</li>
-</ul>
-<h2 id="contact-us">Contact us</h2>
+<h3 id="set-up-a-workflow-to-run-on-the-runner">Set Up a Workflow to Run
+on the Runner</h3>
+<ol type="1">
+<li>In your GitHub repository, select <strong>Code</strong> in the top
+menu bar.</li>
+<li>Below <strong>Quick setup</strong>, select <strong>creating a new
+file</strong>.</li>
+<li>In the first <strong>Name your file</strong> text box, enter
+<code>.github/</code>.</li>
+<li>In the second <strong>Name your file</strong> text box, enter
+<code>workflows/</code>.</li>
+<li>In the third <strong>Name your file</strong> text box, enter
+<code>action.yaml</code>.</li>
+<li>Configure your first workflow in the file editor:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Must run on custom runner</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> push</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">init</span><span class="kw">:</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> self-hosted</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> echo &#39;hello cloud gurus&#39;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> echo $HOSTNAME</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span></code></pre></div>
+<h1
+id="set-up-the-lab-vm-to-work-as-a-runner-connected-to-your-github-repo">Set
+Up the Lab VM to Work as a Runner Connected to Your GitHub Repo</h1>
+<h2 id="create-a-github-repository-and-add-a-runner">Create a GitHub
+Repository and Add a Runner</h2>
+<ol type="1">
+<li>After logging in to your GitHub account, select the
+<strong>Repositories</strong> tab, then click <strong>New</strong>.</li>
+<li>In the <strong>Repository name</strong> field, enter an easily
+identifiable name for the repository (like
+<code>needs-custom-runner</code>).</li>
+<li>Select <strong>Private</strong> to ensure only authorized users can
+create pull requests for your custom runner.</li>
+<li>Click <strong>Create repository</strong>.</li>
+<li>After the repository is created, select <strong>Settings</strong> in
+the top menu bar.</li>
+<li>In the sidebar menu, select <strong>Actions</strong>, then select
+<strong>Runners</strong>.</li>
+<li>Click <strong>New self-hosted Runner</strong>. GitHub provides you a
+list of commands to download, configure, and run the runner on a
+VM.</li>
+<li>If you’re using the VM provided for the lab, select the
+<strong>Linux</strong> option for the <strong>Operating
+System</strong>.</li>
+</ol>
+<h2 id="configure-the-runner-in-your-vm-in-ec2">Configure the Runner in
+Your VM in EC2</h2>
+<ol type="1">
+<li>Navigate to your VM.</li>
+<li>Copy and paste all the <strong>Download</strong> commands and the
+first <strong>Configure</strong> command from GitHub into your VM, one
+at a time. After all the commands are entered into your VM, the VM
+connects to GitHub and authenticates the runner.</li>
+<li>When prompted in the VM terminal, press <strong>Enter</strong> to
+accept all of the defaults.</li>
+<li>Copy and paste the last <strong>Configure</strong> command from
+GitHub into your VM to run the runner:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./run.sh</span></span></code></pre></div>
+<h1 id="github-runners-comparison-table">GitHub Runners Comparison
+Table</h1>
 <table>
 <colgroup>
-<col style="width: 41%" />
-<col style="width: 41%" />
-<col style="width: 16%" />
+<col style="width: 20%" />
+<col style="width: 42%" />
+<col style="width: 36%" />
 </colgroup>
 <thead>
 <tr>
-<th>Lorem</th>
-<th>ipsum</th>
-<th>dolor</th>
+<th><strong>Aspect</strong></th>
+<th><strong>GitHub-Hosted Runners</strong></th>
+<th><strong>Self-Hosted Runners</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Ut enim ad minim veniam</td>
-<td>quis nostrud exercitation ullamco</td>
-<td>laboris nisi ut aliquip ex ea commodo consequat</td>
+<td><strong>Setup and Maintenance</strong></td>
+<td>No setup required; fully managed by GitHub</td>
+<td>Requires manual setup and maintenance</td>
 </tr>
 <tr>
-<td>Duis aute irure</td>
-<td>dolor in reprehenderit in</td>
-<td>voluptate velit esse cillum dolore eu fugiat nulla pariatur</td>
+<td><strong>Cost</strong></td>
+<td>Free with limits on usage; charges for extra minutes</td>
+<td>No cost for runner; infrastructure costs apply</td>
 </tr>
 <tr>
-<td>Excepteur sint occaecat</td>
-<td>cupidatat non proident</td>
-<td>sunt in culpa qui officia deserunt mollit anim id est laborum</td>
+<td><strong>Scalability</strong></td>
+<td>Automatically scales based on demand</td>
+<td>Manually managed based on your infrastructure</td>
+</tr>
+<tr>
+<td><strong>Environment Control</strong></td>
+<td>Predefined environments with limited control</td>
+<td>Full control over the environment</td>
+</tr>
+<tr>
+<td><strong>Operating Systems</strong></td>
+<td>Windows, Linux, and macOS</td>
+<td>Any OS that can run the runner application</td>
+</tr>
+<tr>
+<td><strong>Security</strong></td>
+<td>Secure but runs in a shared environment</td>
+<td>Potentially more secure, isolated in your infra.</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Fixed performance capabilities</td>
+<td>Can be tailored to your needs</td>
+</tr>
+<tr>
+<td><strong>Access to Internal Resources</strong></td>
+<td>Limited unless using self-hosted services</td>
+<td>Direct access to internal networks and resources</td>
+</tr>
+<tr>
+<td><strong>Customization</strong></td>
+<td>Limited to available GitHub environments</td>
+<td>Complete customization of the setup</td>
+</tr>
+<tr>
+<td><strong>Usage Limits</strong></td>
+<td>Subject to GitHub’s usage limits and quotas</td>
+<td>Determined by your own resources</td>
 </tr>
 </tbody>
 </table>
