@@ -69,7 +69,7 @@ jobs:
   documentation: 
     runs-on: ubuntu-latest
     needs : lint
-    if: contains(join(github.event.commits.*.modified), 'userguide.md') || contains(join(github.event.commits.*.added), 'userguide.md')
+    if: contains(github.event.commits.*.modified, 'userguide.md')
     steps: 
       - name: Check out code
         uses: actions/checkout@v2
