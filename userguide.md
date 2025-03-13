@@ -39,7 +39,7 @@ jobs:
 7.  Click **New self-hosted Runner**. GitHub provides you a list of commands to download, configure, and run the runner on a VM.
 8.  If you're using the VM provided for the lab, select the **Linux** option for the **Operating System**.
 
-## Configure the Runner in Your VM
+## Configure the Runner in Your VM in EC2
 
 1.  Navigate to your VM.
 2.  Copy and paste all the **Download** commands and the first **Configure** command from GitHub into your VM, one at a time. After all the commands are entered into your VM, the VM connects to GitHub and authenticates the runner.
