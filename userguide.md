@@ -26,6 +26,29 @@ jobs:
       - run: echo $HOSTNAME
       
 ```
+# Set Up the Lab VM to Work as a Runner Connected to Your GitHub Repo
+
+## Create a GitHub Repository and Add a Runner
+
+1.  After logging in to your GitHub account, select the **Repositories** tab, then click **New**.
+2.  In the **Repository name** field, enter an easily identifiable name for the repository (like `needs-custom-runner`).
+3.  Select **Private** to ensure only authorized users can create pull requests for your custom runner.
+4.  Click **Create repository**.
+5.  After the repository is created, select **Settings** in the top menu bar.
+6.  In the sidebar menu, select **Actions**, then select **Runners**.
+7.  Click **New self-hosted Runner**. GitHub provides you a list of commands to download, configure, and run the runner on a VM.
+8.  If you're using the VM provided for the lab, select the **Linux** option for the **Operating System**.
+
+## Configure the Runner in Your VM
+
+1.  Navigate to your VM.
+2.  Copy and paste all the **Download** commands and the first **Configure** command from GitHub into your VM, one at a time. After all the commands are entered into your VM, the VM connects to GitHub and authenticates the runner.
+3.  When prompted in the VM terminal, press **Enter** to accept all of the defaults.
+4.  Copy and paste the last **Configure** command from GitHub into your VM to run the runner:
+
+```bash
+./run.sh
+```
 
 # GitHub Runners Comparison Table
 
