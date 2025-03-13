@@ -78,7 +78,7 @@ jobs:
         uses: docker://pandoc/core:3.5  
         with:
           args: userguid.md -t html -o docs/index.html
-      - names: deploy site
+      - name: deploy site
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
