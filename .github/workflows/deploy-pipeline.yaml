@@ -9,7 +9,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Debug the event
-        run: echo "Modified Files: ${{ toJson(github.event.head_commit.modified) }}"          
+        run: echo "Modified Files: ${{ github.event.head_commit.modified }}"      
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
