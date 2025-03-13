@@ -61,7 +61,7 @@ jobs:
           body: New Release for ${{ github.sha }}. Release notes can be Found in the Docs.
           draft: false
           prerelease: false
-          files: ./${{ github.sha }}.zip
+          files: ${{ github.sha }}.zip
 # if: startsWith(github.ref, 'refs/tags/')
 # This type of condition is commonly used in GitHub Actions workflows to:
 # Deploy releases: You might want to automatically deploy a new version of your software whenever a new tag is created.
