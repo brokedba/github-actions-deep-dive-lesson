@@ -51,7 +51,7 @@ jobs:
       - name: create release
         id: create_release
         uses: softprops/action-gh-release@v2
-      #  if: startsWith(github.ref, 'refs/tags/')
+      #  if: startsWith(github.ref, 'refs/tags/') # "Only run upon creation of a new Git tag."
         # env:
         #   GITHUB_TOKEN: ${{ secrets.github_token }} # this token is provided by actions automatically.
         with:
@@ -60,3 +60,8 @@ jobs:
           body: New Release for ${{ github.sha }}. Release notes can be Found in the Docs.
           draft: false
           prerelease: false
+# if: startsWith(github.ref, 'refs/tags/')
+# This type of condition is commonly used in GitHub Actions workflows to:
+# Deploy releases: You might want to automatically deploy a new version of your software whenever a new tag is created.
+# Publish packages: When a tag is created that represents a new version of a software package, you may want to publish that package to a package manager.
+# Create release notes: Generate release notes when a new tag is created.
