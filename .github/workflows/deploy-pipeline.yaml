@@ -72,7 +72,7 @@ jobs:
     steps: 
       - name: Check out code
         uses: actions/checkout@v2
-      - names: create docs folder
+      - name: create docs folder
         run:  mkdir docs
       - name: convert md html
         uses: docker://pandoc/core:3.5  
