@@ -55,7 +55,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.github_token }} # this token is provided by actions automatically.
         with:
           tag_name: ${{ github.run_number }}
-          release_nae: Release ${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
           body: New Release for ${{ github.sha }}. Release notes can be Found in the Docs.
           draft: false
           prerelease: false
