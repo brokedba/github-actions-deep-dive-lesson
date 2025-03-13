@@ -9,7 +9,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Debug the event
-        run: echo "${{ toJson(github.event) }}"            
+        run: echo "${{ toJson(github.event) }}" > event.json && cat event.json            
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
